@@ -1,21 +1,22 @@
-import "./styles/globals.css";
-import Header from "./_components/layout/header";
-import Footer from "./_components/layout/footer";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'ElmFlex - Streaming Platform',
+  description: 'A Netflix-like streaming platform built with Next.js',
+}
 
 export default function RootLayout({
   children,
-  session,
 }: {
-  children: React.ReactNode;
-  session: any;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
-        <body>
-        <Header />
-          {children}
-        <Footer />
-        </body>
+      <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }
