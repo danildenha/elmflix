@@ -74,7 +74,7 @@ export const content: Movie[] = [
     content_id: "1",
     title: "The Matrix",
     description: "A computer programmer discovers a mysterious world of digital reality while searching for the truth about artificial intelligence.",
-    thumbnail_url: "https://example.com/matrix.jpg",
+    thumbnail_url: "https://media.wired.com/photos/5ca648a330f00e47fd82ae77/master/pass/Culture_Matrix_Code_corridor.jpg",
     video_url: "https://example.com/matrix.mp4",
     genre: "Sci-Fi",
     rating: 8.7,
@@ -85,7 +85,7 @@ export const content: Movie[] = [
     content_id: "2",
     title: "Inception",
     description: "A thief who enters the dreams of others to steal secrets from their subconscious is offered a chance to regain his old life in exchange for a task considered impossible.",
-    thumbnail_url: "https://example.com/inception.jpg",
+    thumbnail_url: "https://www.syfy.com/sites/syfy/files/wire/legacy/inception-movie-image-38.jpg",
     video_url: "https://example.com/inception.mp4",
     genre: "Sci-Fi",
     rating: 8.8,
@@ -228,23 +228,23 @@ export const findUserById = (id: string) => {
   return users.find(user => user.id === id);
 };
 
-export const getUserWatchlist = (userId: string) => {
-  return watchlist
-    .filter(item => item.user_id === userId)
-    .map(item => ({
-      ...item,
-      content: content.find(c => c.content_id === item.content_id)
-    }));
-};
-
-export const getUserHistory = (userId: string) => {
-  return watchHistory
-    .filter(item => item.user_id === userId)
-    .map(item => ({
-      ...item,
-      content: content.find(c => c.content_id === item.content_id)
-    }));
-};
+// export const getUserWatchlist = (userId: string) => {
+//   return watchlist
+//     .filter(item => item.user_id === userId)
+//     .map(item => ({
+//       ...item,
+//       content: content.find(c => c.content_id === item.content_id)
+//     }));
+// };
+//
+// export const getUserHistory = (userId: string) => {
+//   return watchHistory
+//     .filter(item => item.user_id === userId)
+//     .map(item => ({
+//       ...item,
+//       content: content.find(c => c.content_id === item.content_id)
+//     }));
+// };
 
 export const getContentReviews = (contentId: number) => {
   return reviews
