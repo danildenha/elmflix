@@ -15,6 +15,20 @@ interface Movie {
   video_url: string;
 }
 
+// Function to convert content to Movie type
+const convertToMovie = (data: any): Movie[] => {
+  return data.map((item: any) => ({
+    content_id: Number(item.content_id),
+    title: item.title,
+    description: item.description,
+    genre: item.genre,
+    release_date: item.release_date,
+    rating: item.rating,
+    thumbnail_url: item.thumbnail_url,
+    video_url: item.video_url,
+  }));
+};
+
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
@@ -23,8 +37,9 @@ export default function HomePage() {
 
   // Initialize movies from schema
   useEffect(() => {
-    setMovies(content as Movie[]);
-    setFilteredMovies(content as Movie[]);
+    const moviesData = convertToMovie(content);
+    setMovies(moviesData);
+    setFilteredMovies(moviesData);
   }, []);
 
   // Filter movies based on search term and genre
