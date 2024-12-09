@@ -1,19 +1,3 @@
-export type ProfileType = 'kids' | 'teen' | 'adult';
-
-export interface Profile {
-  id: string;
-  name: string;
-  age: number;
-  type: ProfileType;
-  imageUrl?: string;
-  createdAt: Date;
-  isKidsProfile: boolean;
-  maturitySettings: {
-    maxRating: string; // e.g., 'G', 'PG', 'PG-13', 'R'
-    parentalControls: boolean;
-  };
-}
-
 export interface User {
   id: string;
   email: string;
