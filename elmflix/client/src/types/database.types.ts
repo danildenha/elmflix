@@ -33,11 +33,4 @@ export interface ViewingHistory {
     progress: number;
 }
 
-export interface Review {
-    review_id: number;
-    user_id: number;
-    content_id: number;
-    review_text: string;
-    rating: number;
-    created_at: Date;
-}
+
