@@ -1,4 +1,5 @@
 import { BACKEND_API } from "./constants";
+import axios from "axios";
 export default async function apiAuthSignIn(
   credentials: Record<"email" | "username" | "password", string> | undefined
 ) {
@@ -57,6 +58,20 @@ export async function apiAuthSignUp(credentials: {
     }
 
     return data; // Return the response data on successful sign-up
+  } catch (error) {
+    console.log(error, "No connection to Backend");
+    return error;
+  }
+}
+
+export async function fetchMovies(genre: string | null) {
+  try {
+    const endpoint = genre
+        ? `/api/content/genre/${genre}`
+        : `/api/content`;
+    const response = await axios.get(endpoint);
+
+    return response.data;
   } catch (error) {
     console.log(error, "No connection to Backend");
     return error;
