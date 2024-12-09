@@ -26,7 +26,7 @@ export default async function apiAuthSignIn(
     return { ...data, userID };
   } catch (error) {
     // return { error: error.message };
-    console.log(error?.message, "No connection to Backend");
+    console.log(error, "No connection to Backend");
     return error;
   }
 }
@@ -58,7 +58,7 @@ export async function apiAuthSignUp(credentials: {
 
     return data; // Return the response data on successful sign-up
   } catch (error) {
-    console.log(error?.message, "No connection to Backend");
+    console.log(error, "No connection to Backend");
     return error;
   }
 }
